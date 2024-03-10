@@ -1,25 +1,42 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: []
+    }
+  }
 
+  API_URL = "http://localhost:5026/";
+
+  componentDidMount(){
+    this.refreshUsers();
+  }
+
+  async refreshUsers(){
+    fetch(this.API_URL+"api/Values/GetUsers").then(response=>response.json())
+    .then(data=>{
+      this.setState({users:data});
+    })
+  }
+    render(){
+      const{users} = this.state;
+      return (
+      <div className="App">
+        <h2>New EOSR</h2>
+
+        {users.map(user=>
+          <p>
+            <b>
+              *{user.description}*
+            </b>
+          </p>
+        )}
+      </div>
+      );
+    }
+  }
 export default App;
