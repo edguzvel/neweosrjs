@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -33,14 +32,12 @@ const Register = () => {
           }
         };
 
-        const body = JSON.stringify(newUser);
+        
 
-        const response = await axios.post('http://localhost:5026/', body, config);
-
-        console.log(response.data); // The response from the server
+         // The response from the server
         // Handle success, possibly redirecting to the login page or directly logging the user in
       } catch (error) {
-        console.error(error.response.data);
+        console.error();
         // Handle errors, display error messages
       }
     }
