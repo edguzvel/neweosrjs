@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './NavMenu.css';
+import { SignInButton } from './SignInButton'; // Make sure the path is correct based on your project structure
 
 export class NavMenu extends Component {
   static displayName = NavMenu.name;
@@ -38,9 +39,12 @@ export class NavMenu extends Component {
               <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
               </NavItem>
-              {/* Add the new NavItem for registration here */}
               <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/registration">Sign Up</NavLink>
+              </NavItem>
+              {/* SignInButton added as a NavItem */}
+              <NavItem>
+                <SignInButton />
               </NavItem>
             </ul>
           </Collapse>
