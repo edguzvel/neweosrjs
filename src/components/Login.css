@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    align-items: center; /* Centers children vertically */
+  }
+   
+  .card {
+    flex: 0 0 50%; /* This means don't grow, don't shrink, start at 50% of the parent's width */
+    height: 1000px; /* Adjust height as needed */
+    background-color: #f0f0f0;
+  }
+   
+  .button-container {
+    flex: 1; /* Take up remaining space */
+    display: flex;
+    justify-content: flex-start; /* Aligns button to the start of its container */
+    padding-left: 20px; /* Adjust as needed */
+  }
+   
+  .button {
+    cursor: pointer;
+    width: 352px;
+    height: 56px;
+    padding: 0 8px;
+    border: none;
+    border-radius: 12px;
+    background-color: #030303;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    line-height: 20px;
+    outline: none;
+  }
+  
