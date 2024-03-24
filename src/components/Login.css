@@ -1,21 +1,36 @@
 .container {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    align-items: center; /* Centers children vertically */
-  }
+  display: flex;
+  flex-direction: row;
+  width: 100vw; /* Make sure the container is full width */
+  height: 100vh;
+  align-items: center; /* Centers children vertically */
+  margin: 0; /* Reset any default margins */
+  padding: 0; /* Reset any default padding */
+}
+
    
-  .card {
-    flex: 0 0 50%; /* This means don't grow, don't shrink, start at 50% of the parent's width */
-    height: 1000px; /* Adjust height as needed */
-    background-color: #f0f0f0;
-  }
-   
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  flex: 0 0 50%;
+  max-width: 50%;
+  height: 100vh; /* Adjust if necessary */
+  background-color: #F6FFFF;
+}
+
+  
   .button-container {
-    flex: 1; /* Take up remaining space */
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50vw; /* Half of the viewport width */
+    height: 100vh; /* Full viewport height */
     display: flex;
-    justify-content: flex-start; /* Aligns button to the start of its container */
-    padding-left: 20px; /* Adjust as needed */
+    align-items: center; /* Center button vertically */
+    justify-content: center; /* Center button horizontally */
+    padding-right: 0%; /* Adjust as needed for offset from the right */
   }
    
   .button {
@@ -33,4 +48,28 @@
     line-height: 20px;
     outline: none;
   }
+  
+  .landing-image {
+    max-width: 75%; /* Adjust this percentage to scale the size of the image down */
+    height: auto; /* Maintains the aspect ratio */
+    align-self: center; /* Align the image to the bottom of its flex container */
+  }
+
+  
+  
+/* Add the rest of your styles here */
+
+.logo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 20px; /* Adjust the margin as needed */
+  margin-top: 20px; /* Adjust the margin as needed */
+  font-size: 24px; /* Adjust font size as needed */
+  font-weight: bold; /* Optional: if you want the logo to be bold */
+  color: #333; /* Adjust the color as needed */
+  font-family: "Arial", sans-serif; /* Choose a font that suits your branding */
+}
+
+
   
