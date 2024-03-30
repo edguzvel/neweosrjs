@@ -14,8 +14,7 @@
   flex-direction: column;
   justify-content: center; /* Center items vertically */
   align-items: center; /* Center items horizontally */
-  flex: 0 0 50%;
-  max-width: 50%;
+  max-width: 50vw;
   height: 100vh; /* Adjust if necessary */
   background-color: #F6FFFF;
 }
