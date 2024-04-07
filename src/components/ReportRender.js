@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './Login.css';
+import './ReportRender.css'; // Import the ReportRender.css file
 
-class AuthDisplay extends Component {
+class ReportRender extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -60,30 +61,28 @@ class AuthDisplay extends Component {
     render() {
         const { user, reports } = this.state;
         return (
-            <>
-               
+            <div className="report-container"> {/* Apply the report-container class */}
                 {user ? (
                     <>
+                    <div className="nameTag">
                         <p>Name: {user.description}</p>
                         <p>ID: {user.id}</p>
+                    </div>
                         
-                        
-    
-                        <h2>Reports</h2>
                         {reports.map((report, index) => (
-                            <div key={index}>
-                                <p>Date: {report.reportDate}</p>
-                                <p>Content: {report.reportContent}</p>
-                                <input id="newReport" />&nbsp;
+                            <div key={index} className="report-card"> {/* Apply the report-card class */}
+                                <p>Shift Date: {report.reportDate}</p>
+                                <p> {report.reportContent}</p>
+                    
                             </div>
                         ))}
                     </>
                 ) : (
                     <p>No user details available.</p>
                 )}
-            </>
+            </div>
         );
     }
 }
 
-export default AuthDisplay;
+export default ReportRender;
