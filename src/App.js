@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AuthenticatedTemplate, UnauthenticatedTemplate } from '@azure/msal-react';
 import ReportsSreen from './components/ReportsScreen';
-import AuthDisplay from './components/AuthDisplay'; // Adjust imports as necessary
+ // Adjust imports as necessary
 
 import  Card  from './components/Card';
 
