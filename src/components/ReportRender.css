@@ -1,8 +1,16 @@
-/* ReportRender.css */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center;
+}
+
 .report-container {
-/*background-color: #f2f2f2;*/
     text-align: center;
-    padding: 20vw;
+    width: calc(100% - 400px); /* Subtract twice the width of the sidebar */
+    margin-left: 200px; /* Same as the width of the sidebar */
+    margin-right: 200px; /* Same as the width of the sidebar */
 }
 
 .report-card {
@@ -12,10 +20,8 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.nameTag{
 
+.nameTag {
     text-align: left;
     position: relative;
-    
-
 }

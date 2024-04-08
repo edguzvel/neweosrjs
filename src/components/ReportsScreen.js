@@ -10,7 +10,7 @@ function ReportsScreen() {
             <Sidebar />
             <ReportRender />
             <ReportRender />
-            {/* Your remaining code for the ReportsScreen component */}
+            {/*  Your remaining code for the ReportsScreen component */}
         </div>
     );
 }
