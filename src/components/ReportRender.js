@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './Login.css';
-import './ReportRender.css'; // Import the ReportRender.css file
+import '../styles/Login.css';
+import '../styles/ReportRender.css'; // Import the ReportRender.css file
 
 class ReportRender extends Component {
     constructor(props) {
