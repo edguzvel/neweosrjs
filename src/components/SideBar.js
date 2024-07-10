@@ -1,3 +1,4 @@
+//sidebar contents
 import React from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 

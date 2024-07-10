@@ -1,3 +1,4 @@
+//sign in button component
 import React from "react";
 import { useMsal } from "@azure/msal-react";
 import { loginRequest } from "../authConfig";

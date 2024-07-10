@@ -1,3 +1,4 @@
+//Header with search input and left sidebar
 import React from 'react';
 import SideBar from './SideBar'; // adjust the path as needed
 

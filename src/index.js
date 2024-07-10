@@ -1,4 +1,4 @@
-// index.js
+// This is the entry point of your application
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';

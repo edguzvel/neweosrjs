@@ -1,8 +1,8 @@
-// App.js
+// App.js will be the main entry point for your application. It will be responsible for rendering the correct components based on the user's authentication status.
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AuthenticatedTemplate, UnauthenticatedTemplate } from '@azure/msal-react';
-import ReportsSreen from './components/ReportsScreen';
+import Feed from './components/Feed';
  // Adjust imports as necessary
 
 import  Card  from './components/Card';
@@ -15,7 +15,7 @@ function App() {
           <Route path="/" element={
             <>
               <AuthenticatedTemplate>
-                <ReportsSreen /> {/* Authenticated users will see this */}
+                <Feed /> {/* Authenticated users will see this */}
               </AuthenticatedTemplate>
               <UnauthenticatedTemplate>
   <Card /> {/* Unauthenticated users will see this */}

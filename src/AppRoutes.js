@@ -1,3 +1,4 @@
+// This file contains the routes for the application. It is used to define the routes for the application and the components that should be rendered for each route.
 import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";

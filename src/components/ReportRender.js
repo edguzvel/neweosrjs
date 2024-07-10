@@ -1,88 +1,49 @@
+//Renders all reports from api database
 import React, { Component } from 'react';
-import '../styles/Login.css';
-import '../styles/ReportRender.css'; // Import the ReportRender.css file
+import '../styles/ReportRender.css'; // Import CSS for styling the report feed
 
 class ReportRender extends Component {
     constructor(props) {
         super(props);
+        // Initialize state with an empty reports array
         this.state = {
-            user: null,
             reports: []
-        }
+        };
     }
 
+    // Base URL for API requests
     API_URL = "http://localhost:5026";
 
     componentDidMount() {
-        this.fetchUserAndReports();
+        // Fetch reports data when the component mounts
+        this.fetchReports();
     }
 
-    fetchUserAndReports = async () => {
-        // Fetch user details for userId = 1
-        fetch(`${this.API_URL}/api/values/GetUserById?userId=1`)
-            .then(response => response.json())
-            .then(user => this.setState({ user: user[0] })) // Assuming the endpoint returns an array
-            .catch(error => console.error("Failed to fetch user", error));
-        
-        // Fetch reports for userId = 1
-        fetch(`${this.API_URL}/api/values/GetReportsByUser?userId=1`)
-            .then(response => response.json())
-            .then(reports => this.setState({ reports }))
-            .catch(error => console.error("Failed to fetch reports", error));
-    }
-
-    addClick = async () => {
-        var newUsers = document.getElementById("newUsers").value;
-        fetch(`${this.API_URL}/api/Values/AddUsers`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ newUsers }) // Assuming your API is expecting a JSON body
-        })
-        .then(res => res.json())
-        .then(result => {
-            alert(JSON.stringify(result)); // Directly use result if it's already JSON
-            this.fetchUserAndReports(); // Refresh to see new data
-        })
-        .catch(error => console.error("Failed to add user", error));
-    }
-
-    deleteUser = async (id) => {
-        fetch(`${this.API_URL}/api/Values/DeleteUsers/${id}`, {
-            method: 'DELETE'
-        })
-        .then(res => res.json())
-        .then(result => {
-            alert(JSON.stringify(result));
-            this.fetchUserAndReports(); // Refresh to see updated data
-        })
-        .catch(error => console.error("Failed to delete user", error));
+    fetchReports = async () => {
+        // Fetch all reports from the API
+        fetch(`${this.API_URL}/api/values/GetAllReports`)
+            .then(response => response.json()) // Parse the JSON response
+            .then(reports => this.setState({ reports })) // Update state with fetched reports
+            .catch(error => console.error("Failed to fetch reports", error)); // Log errors to the console
     }
 
     render() {
-        const { user, reports } = this.state;
+        const { reports } = this.state;
         return (
-            <div className="report-container"> {/* Apply the report-container class */}
-                {user ? (
-                    <>
-                    <div className="nameTag">
-                        <p>Name: {user.description}</p>
-                        <p>ID: {user.id}</p>
-                    </div>
-                        
-                        {reports.map((report, index) => (
-                            <div key={index} className="report-card"> {/* Apply the report-card class */}
-                                <p>Shift Date: {report.reportDate}</p>
-                                <p> {report.reportContent}</p>
-                    
-                            </div>
-                        ))}
-                    </>
+            <div className="report-container"> {/* Container for the reports feed */}
+                {reports.length > 0 ? (
+                    reports.map((report, index) => (
+                        <div key={index} className="report-card"> {/* Individual report card */}
+                            <p>Report Date: {report.reportDate}</p> {/* Display report date */}
+                            <p>{report.reportContent}</p> {/* Display report content */}
+                        </div>
+                    ))
                 ) : (
-                    <p>No user details available.</p>
+                    <p>No reports available.</p> // Message displayed if no reports are available
                 )}
             </div>
         );
     }
 }
 
-export default ReportRender;
+export default ReportRender; // Export the component for use in other parts of the application
