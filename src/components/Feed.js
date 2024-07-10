@@ -7,7 +7,9 @@ function Feed() {
     return (
         <div>
             <Header />
+            <Sidebar /> 
             <ReportRender />
+            
             {/*  Your remaining code for the ReportsScreen component */}
         </div>
     );

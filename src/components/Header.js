@@ -1,6 +1,5 @@
 //Header with search input and left sidebar
 import React from 'react';
-import SideBar from './SideBar'; // adjust the path as needed
 
 const styles = {
   Header: {
@@ -39,7 +38,6 @@ const defaultProps = {
 const HeaderWithInput = (props) => {
   return (
     <div style={styles.Header}>
-      <SideBar />
       <input style={styles.Input} placeholder={props.text ?? defaultProps.text} />
       {props.children}
     </div>
