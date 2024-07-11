@@ -34,6 +34,7 @@ class ReportRender extends Component {
                 {reports.length > 0 ? (
                     reports.map((report, index) => (
                         <div key={index} className="report-card"> {/* Individual report card */}
+                            <p>User ID: {report.userId}</p> {/* Display user ID */}
                             <p>Report Date: {report.reportDate}</p> {/* Display report date */}
                             <p>{report.reportContent}</p> {/* Display report content */}
                         </div>
